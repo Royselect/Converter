@@ -1,28 +1,53 @@
 <template>
     <Page>
         <ActionBar>
-            <Label text="Home"/>
+            <Label text="Converter"/>
         </ActionBar>
 
-        <GridLayout>
-            <Label class="info">
-                <FormattedString>
-                    <Span class="fas" text.decode="&#xf135; "/>
-                    <Span :text="message"/>
-                </FormattedString>
-            </Label>
+        <GridLayout columns="*, *" rows="*, *, *">
+            <Button @tap='goToMass' text="Масса" row="0" col="0"></Button>
+            <Button text="Темпа" row="0" col="1"></Button>
+            <Button text="Валюта" row="1" col="0"></Button>
+            <Button text="Длинна" row="1" col="1"></Button>
+            <Button text="Скорость" row="2" col="0"></Button>
+            <Button text="Время" row="2" col="1"></Button>
         </GridLayout>
+        
+        
     </Page>
 </template>
 
 <script>
-  export default {
-    computed: {
-      message() {
-        return "Blank {N}-Vue app";
-      }
-    }
-  };
+// import { GridLayout } from '@nativescript/core';
+    import Mass from './Mass.vue'
+    export default {
+    data() {
+        return {
+            massPage: Mass
+        };
+    },
+    methods: {
+        
+        goToMass(){
+            this.$navigateTo(Mass)
+        }
+
+    },   
+}
+
+// const Mass = {
+//         template: 
+//             <template>
+//                 <Page>
+//                     <ActionBar>
+//                         <Label text="По идее тут страница"/>
+//                     </ActionBar>
+//                 </Page>
+//             </template>
+        
+
+//     };
+
 </script>
 
 <style scoped lang="scss">
