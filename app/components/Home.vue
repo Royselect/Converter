@@ -3,14 +3,13 @@
         <ActionBar>
             <Label text="Converter"/>
         </ActionBar>
-
-        <GridLayout columns="*, *" rows="*, *, *">
-            <Button @tap='goToMass' text="Масса" row="0" col="0"></Button>
-            <Button text="Темпа" row="0" col="1"></Button>
-            <Button text="Валюта" row="1" col="0"></Button>
-            <Button text="Длинна" row="1" col="1"></Button>
-            <Button text="Скорость" row="2" col="0"></Button>
-            <Button text="Время" row="2" col="1"></Button>
+        <GridLayout class="back_buttons" columns="*, *" rows="*, *, *">   
+            <button class="button-home" row="0" col="0" @tap="goToMass" text="Масса" backgroundImage="~/assets/mass.png" />
+            <button class="button-home" row="0" col="1" @tap="goToTemp" text="Температура" backgroundImage="~/assets/temp.png" />
+            <button class="button-home" row="1" col="0" @tap="goToSpeed" text="Скорость" backgroundImage="~/assets/speed.png" />
+            <button class="button-home" row="1" col="1" @tap="goToTime" text="Время" backgroundImage="~/assets/time.png" />
+            <button class="button-home" row="2" col="0" @tap="goToCurr" text="Валюта" backgroundImage="~/assets/curr.png" />
+            <button class="button-home" row="2" col="1" @tap="goToLong" text="Длинна" backgroundImage="~/assets/long.png" />
         </GridLayout>
         
         
@@ -18,35 +17,46 @@
 </template>
 
 <script>
-// import { GridLayout } from '@nativescript/core';
-    import Mass from './Mass.vue'
+
+
+import Mass from './Mass.vue'
+import Temp from './Temp.vue'
+import Speed from './Speed.vue'
+import Time from './Time.vue'
+import Currency from './Currency.vue'
+import Long from './Long.vue'
     export default {
     data() {
-        return {
-            massPage: Mass
-        };
+        return {};
     },
     methods: {
-        
-        goToMass(){
-            this.$navigateTo(Mass)
-        }
+        goToMass() {
+            this.$navigateTo(Mass);
+        },
 
-    },   
+        goToTemp() {
+            this.$navigateTo(Temp);
+        },
+
+        goToSpeed() {
+            this.$navigateTo(Speed);
+        },
+
+        goToTime() {
+            this.$navigateTo(Time);
+        },
+
+        goToCurr() {
+            this.$navigateTo(Currency);
+        },
+
+        goToLong() {
+            this.$navigateTo(Long);
+        },
+       
+    },
+   
 }
-
-// const Mass = {
-//         template: 
-//             <template>
-//                 <Page>
-//                     <ActionBar>
-//                         <Label text="По идее тут страница"/>
-//                     </ActionBar>
-//                 </Page>
-//             </template>
-        
-
-//     };
 
 </script>
 
@@ -55,7 +65,7 @@
 
     // Custom styles
     .fas {
-        @include colorize($color: accent);
+        @include colorize($color: accent);;
     }
 
     .info {
